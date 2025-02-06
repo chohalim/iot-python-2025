@@ -21,7 +21,7 @@ def get_age(birthYear):
 def closing():
     return '바이바이'
 
-print('인사하기:', end=' ')
+print('인사하기:', end=' ') 
 say_hi()  # 함수 호출
 say_hi() 
 
