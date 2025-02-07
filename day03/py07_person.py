@@ -36,7 +36,7 @@ class Person:
 
 
 
-man = Person('명건', 50, 76.5, 'man') # __init__() 특수함수를 실행.
+man = Person('명건', 50, 70.5, 'man') # __init__() 특수함수를 실행.
 man.getup()
 man.setWeight(80.1)
 print(f'{man.name}의 성별은 {man.getGender()}.')
