@@ -4,7 +4,7 @@
 class Car:
     # __new__(사용빈도 낮음), __init__(많이 사용)
     ## Car() 호출하면 아래의 메서드가 실행
-    ## company, name, plateNumber 모를 때는 None
+    ## company, name, plateNumber 모를 때는 None # None 생략가능
     def __init__(self, company=None, name=None, plateNumber=None):
         self.__company = company # 멤버변수 이름 앞 __ : 외부접근 불가
         self.__name = name
@@ -33,7 +33,6 @@ myCar = Car(name='아이오닉', plateNumber='54라9537', company='현대')
 myCar.setName('아이오닉') # 빈칸일 경우 글쎄요가 출력됨
 print(myCar)
 
-# print(myCar) # 차의 번호를 출력하고 싶음
 
 # myCar.__plateNumber = 2018 # 2018 숫자열 print되지 않음
 # print(myCar)

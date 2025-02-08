@@ -4,7 +4,7 @@ from Movie import Movie
 
 VIRSION = 0.1
 
-def clearScreen():
+def clearScreen(): ############# 뭔말 ?
     command = 'clear'
     if os.name in ('nt', 'dos'):
         command = 'cls'
@@ -20,10 +20,10 @@ def run():
     load_movie(lst_movie)
 
     while True:
-        sel_menu = set_menu()
+        sel_menu = set_menu() 
         if sel_menu == 1:
             # print('영화 입력')
-            movie = set_movie()
+            movie = set_movie() # 92로
             lst_movie.append(movie)
 
         elif sel_menu == 2:
@@ -114,7 +114,7 @@ def set_menu():
     try:
         sel_menu = int(input('메뉴 번호입력: ')) # 예외 있음
     except Exception as e:
-        sel_menu = 0 # 모든 예외는 0으로
+        sel_menu = 0 # 모든 예외는 0으로 ############# 0이면 다 사라지게 하는 뜻 ?
 
     return sel_menu
 

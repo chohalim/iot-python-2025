@@ -29,7 +29,7 @@
 
 
 numbers = list(range(1,11))
-for i in numbers:
+for i in numbers: ############ 포인문 쓰는 이유 ??? i로 간단히 나타내기 위해서 ?
     # print(i)
     pass
 
@@ -53,7 +53,7 @@ while True:
 
             print(f'{x} * {y} = {mul(x, y)}')
 
-        except Exception as e: # 
+        except Exception as e: # as e 없으면 무슨에러인지 확인이 안됨
             print(f'입력 실수 {e}')
             # print('입력 실수. 다시하세요.') # 최종적으로 사용자만 확인되는 에러메세지
 
@@ -63,7 +63,7 @@ while True:
             x = int(x)
             y = int(y)
             print(f'{x} / {y} = {div(x, y)}')
-        except ValueError as e:        
+        except ValueError as e: ################ except Exception as e: 로 써도 같은 결과, 무슨 차이 ?
             print(f'입력 실수 {e}')
         except ZeroDivisionError as e:
             print(f'너 바보야? 0으로 왜 나눠?')

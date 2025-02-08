@@ -2,10 +2,10 @@
 
 class Person:
     # 명사(속성)인 멤버변수
-    name = '유고'
-    age = 49
+    # name = '유고'
+    # age = 49
     weight = 76.2
-    gender = 'male'
+    # gender = 'male'
 
 
     # 초기화(생성자) 메서드(파이썬 기본으로 포함)
