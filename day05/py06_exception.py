@@ -29,7 +29,7 @@
 
 
 numbers = list(range(1,11))
-for i in numbers: ############ 포인문 쓰는 이유 ??? i로 간단히 나타내기 위해서 ?
+for i in numbers: ############ 포인문 쓰는 이유 i = numbers ??
     # print(i)
     pass
 
@@ -63,7 +63,7 @@ while True:
             x = int(x)
             y = int(y)
             print(f'{x} / {y} = {div(x, y)}')
-        except ValueError as e: ################ except Exception as e: 로 써도 같은 결과, 무슨 차이 ?
+        except ValueError as e: # Eception 안에 ValueError, ZeroDivisionError이 포함됨
             print(f'입력 실수 {e}')
         except ZeroDivisionError as e:
             print(f'너 바보야? 0으로 왜 나눠?')

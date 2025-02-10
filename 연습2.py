@@ -23,10 +23,10 @@ class Car:
         self.__company = company # 멤버변수 이름 앞 __ : 외부접근 불가
         self.__name = name
         self.__plateNumber = plateNumber
-        print ('Car 클래스를 새로 생성!')
+        print ('Car 클래스를 새로 생성!') # Car 초기화 라고 생각
 
 # 클래스 자체가 출력되는데, __str__ 문자열로 출력되도록 바꿔줌
-    def __str__(self): ################# __str__은 class에서만 사용 ?
+    def __str__(self): # __str__ 특수한 역할을 사용할 때, class 안에서 사용
         return f'제 차는 {self.__name}이고, 차번호는 {self.__plateNumber}입니다.'
     
     # 외부에서 잘못 된 차번호를 넣으면 안들어감
@@ -38,13 +38,13 @@ class Car:
         self.__name = newName
 
 
-myCar = Car('현대', '아이오닉', '54라9537') # ()넣으면 None 출력됨
+myCar = Car('현대', '아이오닉', '54라9537') # ()넣으면 None 출력됨 # 여기서 Car 클래스를 새로생성!
 # myCar = Car(name='아이오닉', plateNumber='54라9537', company='현대')
 myCar.setName('하림') # 빈칸일 경우 글쎄요가 출력됨
 print(myCar)
 
 myCar.__plateNumber = 2018 # 2018 숫자열 print되지 않음
-print(myCar) ########################## Car 클래스 새로 생성! 반복되지 않는 이유 ?
+print(myCar) 
 
 myCar.setPlateNumber('2025') # 2025가 문자열로 들어가서 가능
 print(myCar) 

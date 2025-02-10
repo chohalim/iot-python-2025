@@ -41,10 +41,13 @@ print(len(arr), arr)
 
 arr.insert(2, 100) # 2자리에 추가됨
 print(len(arr), arr)
+print(arr2)
 
 ## 리스트 합칠 때
-arr + arr2 ################################### 왜 None 나옴?
-print(arr.extend(arr2))
+# arr + arr2
+print(arr.extend(arr2)) # None 
+arr.extend(arr2) 
+print(arr)
 
 ## 리스트 정렬(쇼핑몰 낮은가격순, 높은가격순, 최신일자부터 ...)
 arr = [6, 7, 1, 3, 9, 0, 2, 8,] # 마지막에 쉼표 무관
