@@ -193,7 +193,7 @@ https://github.com/user-attachments/assets/633eb469-16cc-4e7f-adbe-f3e0155a827c
 <!-- 주석 -->
 <!--html에서 사용하는 <img> 태그로 캡쳐한 이미지를 추가 -->
 <!--![py001](./image/py001.png)-->
-<img src="./image/py001.png" width="400"
+<img src="./image/py001.png" width="400">
 
 ## 7일차
 - 파이썬 응용
