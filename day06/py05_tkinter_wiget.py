@@ -11,11 +11,11 @@ root = Tk()
 root.title('위젯 예제')
 
 # 이미지 객체
-# img = PhotoImage(file='./day06/kitty.png')
+img = PhotoImage(file='./image/kitty.png')
 
 # 레이블에 이미지 표시
-# label = Label(root, imege=img)
-# label.pack()
+label = Label(root, image=img)
+label.pack()
 
 # 버튼 위젯
 button = Button(root, text='클릭', command=buttonClick)

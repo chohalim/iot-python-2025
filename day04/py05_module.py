@@ -12,7 +12,7 @@ print('외부 패키지 사용')
 # 웹 브라우저가 아닌 파이썬 상에서 웹사이트 접속
 res = requests.get('https://www.google.com') # website URL
 
-print(res.status_code) # 200(ok)
+print(res.status_code) # 200(ok) # 구글 네이버는 200이고 다른 사이트는 다를 수 있음
 # print(res.content)
 
 f = open('./day04/index.html', encoding='utf-8', mode = 'w')

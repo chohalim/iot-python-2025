@@ -125,7 +125,7 @@ def set_menu():
     try:
         sel_menu = int(input('메뉴 번호입력: ')) # 예외 있음
     except Exception as e:
-        sel_menu = 0 # 모든 예외는 0으로 ############# 0이면 다 사라지게 하는 뜻 ?
+        sel_menu = 0 # 모든 예외는 0으로 ############# 0 뜻?
 
     return sel_menu
 

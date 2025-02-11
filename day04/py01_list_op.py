@@ -71,7 +71,7 @@ print(arr)
 
 sum = 0
 for i in arr:
-    sum = sum + i #################### 뭔말 ?
+    sum = sum + i 
 
 print(f'{len(arr)}까지의 합산은, {sum}입니다.')
 
