@@ -201,13 +201,15 @@ https://github.com/user-attachments/assets/633eb469-16cc-4e7f-adbe-f3e0155a827c
     - 토이 프로젝트
         - ChatGPT 유사앱 - 구글 제미나이 API
     - 실습
-        - 제미나이 챗앱 -> 클래스로 변경
+        - 제미나이 챗앱 -> **클래스형태**로 변경
 
     - 실행파일 만들기
-        - > pip install pyinstaller
-        - > pyinstaller --onefile python_file.py
-        - 같이 실행되는 터미널을 제거하려면
-        - > pyinstaller --onrfile--noconsole 파이썬 파일명
-        - 아이콘 등의 리소스를 dist 폴더에 복사해야
+        - `pyinstaller` 모듈 설치
+            - pip install pyinstaller
+        - 실행파일 명령어(터미널에서 실행)
+            - pyinstaller --onefile python_file.py
+            - 같이 실행되는 터미널을 제거하려면
+            - pyinstaller --onrfile--noconsole 파이썬 파일명
+            - 아이콘 등의 리소스를 dist 폴더에 복사해야
 
         
