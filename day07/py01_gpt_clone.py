@@ -1,5 +1,5 @@
 # py01_gpt_clone.py
-# 
+# GUI를 위한 모듈 # 절차적 형식 !!!
 
 from tkinter import * # tkinter 모듈에 있는 대다수의 클래스, 함수, 변수들을 다 쓰겠다(용량 많아짐)
 from tkinter.messagebox import * # 모듈 밑에 있는 모듈을 from tkinter import *로 가져올 수 없음
@@ -60,9 +60,9 @@ root = Tk()
 root.title('제미나이 챗봇')
 root.geometry('730x450')
 # 12. 아이콘 변경
-root.iconbitmap('./image/chatbot.ico') #############################
+root.iconbitmap('./chatbot.ico') # 파이썬인스톨러로 설치할 땐 해당폴더에 복사하고  
 
-# 7. 전체에서 사용할 폰트 지정 -> 나눔고딕
+# 7. 전체에서 사용할 폰트 지정 -> 나눔고딕 
 myFont = Font(family='NanumGothic', size=10)
 boldFont = Font(family='NanumGothic', size=10, weight=BOLD)
 
