@@ -192,5 +192,12 @@ https://github.com/user-attachments/assets/633eb469-16cc-4e7f-adbe-f3e0155a827c
 
 <!-- 주석 -->
 <!--html에서 사용하는 <img> 태그로 캡쳐한 이미지를 추가 -->
-![py001](./imege/py001.png)
-<img src="./imege/py001.png" width="400">
+<!--![py001](./imege/py001.png)-->
+<!--<img src="./imege/py001.png" width="400">이걸로--> 
+
+## 7일차
+- 파이썬 응용
+    - 토이 프로젝트
+        - ChatGPT 유사앱 - 구글 제미나이 API
+
+        
