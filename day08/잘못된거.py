@@ -8,7 +8,7 @@ import pygame.image as image
 import sys 
 
 pygame.init()
-Surface = pygame.display.set_mode((600, 400)) 
+Surface = pygame.display.set_mode((400, 400)) 
 FPSCLOK = pygame.time.Clock() 
 pygame.display.set_caption('Pygame Graphic')
 
@@ -27,7 +27,7 @@ def main():
         # 화면 표현 start_pos=(x, y)
         for x in range(10,400,10):
             line(Surface, 'white', (x,0), (x,400))
-        for x in range(10,400,10):
+        for y in range(10,400,10):
             line(Surface, 'white', (0, y), (400, y))
         
         # 선 화면 표현, start_pos = (x, y) -> 화면 표현은 항상 for문 - update 사이 넣기
@@ -40,7 +40,7 @@ def main():
         rect(Surface, (255,0,0), (260,30,100,50,),4) # (x, y, 넓이, 높이), 두께
 
         # 원(중심을 시작점으로)
-        pygame.draw.rect(Surface, color=(255, 255, 0), center=(40, 180), radius=10)
+        pygame.draw.circle(Surface, color=(255, 255, 0), center=(40, 180), radius=10)
         circle(Surface, (255,255,255), (80,180), 20) # 마지막 원의 반지름
         circle(Surface, (255,112,20), (280,160), 30, 10)
 
