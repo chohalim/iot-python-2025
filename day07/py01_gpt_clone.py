@@ -19,7 +19,7 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 # 4. 전송버튼 이벤트, 제미나이 실행 포함
 def responseMessage():
-    # showinfo('실행', 'API를 실행합니다!')
+    # showinfo('실행', 'API를 실행합니다!') # .replace('\n','').strip() 줄바꿈을 두번하는 이유 ?????
     inputText = textMessage.get('1.0', END).replace('\n','').strip() # 자동줄바꿈, 띄움 없애기
     print(inputText)
     textMessage.delete('1.0', END) # 입력하고 전송한 후에 글이 지워지도록
@@ -46,7 +46,7 @@ def responseMessage():
 def keypress(event):
     # print(repr(event.char)) # repr을 안쓰면 \r, \x80 표시 안됨
     # \r(캐리지 리턴), \n(뉴라인) # 혼용해서 사용 \r\n, \r, \n
-    if event.char == '\r': ######## 티킨터는 \r 사용?????
+    if event.char == '\r': 
         responseMessage()
 
 #11. 종료시 이벤트처리 함수
