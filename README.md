@@ -225,6 +225,7 @@ https://github.com/user-attachments/assets/26ba5598-e242-4582-b2bc-8fae23b8580b
 
     - 토이 프로젝트
         - 블록깨기 게임
+$$  \frac{x}{y} $$
         
 <img src="./image/py004.gif" width="400">
 
