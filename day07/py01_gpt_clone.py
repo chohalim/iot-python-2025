@@ -22,7 +22,7 @@ def responseMessage():
     # showinfo('실행', 'API를 실행합니다!')
     inputText = textMessage.get('1.0', END).replace('\n','').strip() # 자동줄바꿈, 띄움 없애기
     print(inputText)
-    textMessage.delete('1.0', END) # # 입력하고 전송한 후에 글이 지워지도록
+    textMessage.delete('1.0', END) # 입력하고 전송한 후에 글이 지워지도록
     # showinfo('결과', inputText) # 다이얼로그, 모달(Modal)창 - 제어권을 갖는 창 <-> 모달리스트
 
     if inputText:
@@ -30,7 +30,7 @@ def responseMessage():
             textResult.insert(END, '유저: ', BOLD)
             textResult.insert(END, f'{inputText}\n\n', 'user') # 'user' 텍스트 아규먼트
 
-            ai_response = model.generate_content(inputText)
+            ai_response = model.generate_content(inputText) # generate_content??
             response = ai_response.text
 
             textResult.insert(END, '챗봇: ', 'bold')
@@ -40,7 +40,7 @@ def responseMessage():
         except Exception as e:
             textResult.insert(END, f'{response}\n\n', 'error')
         finally:
-            textResult.see(END) # ??????????????????
+            textResult.see(END)
 
 # 8. textMessage 위젯에서 엔터를 치면 전송버튼이 클릭 
 def keypress(event):
@@ -59,7 +59,7 @@ root = Tk()
 root.title('제미나이 챗봇')
 root.geometry('730x450')
 # 12. 아이콘 변경
-# root.iconbitmap('./chatbot.ico') # 파이썬인스톨러로 설치할 땐 해당폴더에 복사하고  
+root.iconbitmap('./image/chatbot.ico') # 파이썬인스톨러로 설치할 땐 해당폴더에 복사하고 
 
 # 7. 전체에서 사용할 폰트 지정 -> 나눔고딕 
 myFont = Font(family='NanumGothic', size=10)

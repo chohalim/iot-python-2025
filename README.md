@@ -205,13 +205,23 @@ https://github.com/user-attachments/assets/633eb469-16cc-4e7f-adbe-f3e0155a827c
      
 https://github.com/user-attachments/assets/26ba5598-e242-4582-b2bc-8fae23b8580b
 
+- 파이썬 응용
     - 실행파일 만들기
         - `pyinstaller` 모듈 설치
             - pip install pyinstaller
         - 실행파일 명령어(터미널에서 실행)
             - pyinstaller --onefile python_file.py
             - 같이 실행되는 터미널을 제거하려면
-            - pyinstaller --onrfile--noconsole 파이썬 파일명
+            - pyinstaller --onefile--noconsole 파이썬 파일명
             - 아이콘 등의 리소스를 dist 폴더에 복사해야
 
+## 8일차
+- 파이썬 응용
+    - GUI 중 PyGame
+        - 기본 윈도우 학습
+        - 이벤트 처리
+        - 간단한 게임
+        - 이미지, 사운드 등 리소스 활용 게임
+
+        
         

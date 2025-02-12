@@ -16,7 +16,7 @@ class window(Tk): # 원래는 window: #window(Tk): 는 Tk를 상속받는다
         self.title('제미나이 챗봇 v2.0')
         self.geometry('730x450')
         # 클래스 작업할 땐 self 유심히
-        self.iconbitmap('./image/chatbot.ico') 
+        self.iconbitmap('./chatbot.ico') 
         self.protocol('AIzaSyBPuAhm1CP6pMLsk9UioATjQVKTbbrq8dE', self.onClosing)
 
         # self.initWindow()
