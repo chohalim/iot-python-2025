@@ -40,7 +40,9 @@ def main():
     score = 0
     BLOCK = []
     # 공만듦
-    BALL = Block((200,200,0),Rect(375,650,20,20), 10)
+    BALL = Block((200,200,0),Rect(375,650,20,20), 10) # 공 생성, 공 스피드 10으로 시작
+    PADDLE = Block((200,200,0), Rect(375,700,100,30)) # 공을 맞출 패달을 생성
+    
     # 클래스 생성
     # 무지개색 정보
     colors = [(255,0,0),(255,150,0),(255,228,0),
@@ -52,7 +54,6 @@ def main():
         for x in range(0,9):
             BLOCK.append(Block(color, Rect(x*80+150, y*40+40, 60, 20)))
 
-
     bigFont = pygame.font.SysFont('NanumGothic', 80)
     smallFont = pygame.font.SysFont('NanumGothic', 45)
     M_GAME_TITLE = bigFont.render('GAME START?', True, 'white')
@@ -60,10 +61,10 @@ def main():
     M_CLEAR = bigFont.render('CLEAR!', True, 'yellow')
     M_FAIL = bigFont.render('FAILED!!', True, 'red')
 
-
-
     while True:
         # 스코어, 스피드 글자 들어갈 자리
+        M_SCORE = smallFont.render(f'SCORE : {score}', True, 'White')
+        M_SPEED = smallFont.render(f'SPEED : {BALL.speed}', True, 'White')
         Surface.fill((0, 0, 0)) 
         for event in pygame.event.get(): # 이벤트 처리 기본
             if event.type == QUIT: 
@@ -71,10 +72,16 @@ def main():
                 sys.exit() 
             elif event.type == KEYDOWN:
                 if event.key == K_LEFT:
-                    pass
-                if event.key == K_RIGHT:
-                    pass
-                if event.key == K_SPACE:
+                    if PADDLE.rect.centerx < 50:
+                        PADDLE.rect.centerx = 50
+                    else:
+                        PADDLE.rect.centerx -= 10
+                elif event.key == K_RIGHT:
+                    if PADDLE.rect.centerx > (SCREEN_WIDTH -50): 
+                        PADDLE.rect.centerx = (SCREEN_WIDTH -50)
+                    else:
+                        PADDLE.rect.centerx += 10
+                elif event.key == K_SPACE:
                     is_game_start = True # 게임시작
 
         # 게임화면 렌더링
@@ -84,18 +91,43 @@ def main():
             Surface.blit(M_GAME_SUBTITLE,((SCREEN_WIDTH/2)-(300/2),
                                        (SCREEN_HEIGTH/2)+50))
         else: # 게임시작 후 블록, 볼이 움직이게 처리, 바도 움직이도록
-            LenBlock = len(BLOCK) # 54개로 시작
-            # BLOCK = [x for x in BLOCK]
+            Surface.blit(M_SCORE, (10,770))
+            Surface.blit(M_SPEED, (SCREEN_WIDTH - 220, 770))
+
+            LenBlock = len(BLOCK) # 54개로 시작하지만 공에 충돌 시 갯수가 줄어들도록
+            # Collision Detection(충돌체크)
+            BLOCK = [x for x in BLOCK if not x.rect.colliderect(BALL.rect)]
+            if len(BLOCK) != LenBlock: # 공에 블록에 맞아서 갯수가 맞지 않음
+                BALL.dir *= -1 # 공의 방향이 바뀜
+                BALL.speed += 0.25 # 부딪힐 때 마다 속도 빨라짐
+                # 점수처리
+                score += 10
 
             if BALL.rect.centery < 1000:
                 BALL.move()
 
-            if BALL.rect.centerx < 0 or BALL.rect.centerx > 1000: # 게임화면 양쪽 벽 밖으로 못나가게
-                BALL.dir = 180 - BALL.dir 
-            elif BALL.rect.centery < 0:
-                BALL.dir = - BALL.dir
+            # 패들과 공이 부딪힘(Collision Detect!)
+            if PADDLE.rect.colliderect(BALL.rect):
+                BALL.speed += 0.25 #
+                BALL.dir = 90 + (PADDLE.rect.centerx - BALL.rect.centerx)/PADDLE.rect.width * 100
+
+            if BALL.rect.centerx < 10 or BALL.rect.centerx > (SCREEN_WIDTH - 10): # 게임화면 양쪽 벽 밖으로 못나가게
+                BALL.dir = 180 - BALL.dir # 반사각만큼 방향 전환
+            elif BALL.rect.centery < 10: # 게임화면 천장에 부딪히면 반사
+                BALL.dir = - BALL.dir 
+
+            # 게임 클리어, 종료 로직
+            if len(BLOCK) == 0: # 볼로 블록을 다 맞추면
+                Surface.blit(M_CLEAR,((SCREEN_WIDTH/2)-(240/2),
+                                       (SCREEN_HEIGTH/2)-(50/2)))
+                
+            if BALL.rect.centery > 800:
+                Surface.blit(M_FAIL,((SCREEN_WIDTH/2)-(240/2),
+                                       (SCREEN_HEIGTH/2)-(50/2)))
+                # is_game_start = False # 게임 종료 후 재시작은 나중에 다시 !
 
             BALL.draw_E() # 볼그리기
+            PADDLE.draw_R() # 바그리기
 
             for i in BLOCK: # Block()
                 i.draw_R()
