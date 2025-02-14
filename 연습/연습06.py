@@ -55,7 +55,7 @@ bottonSend = Button(inputFrame, text='전송', bg='green',fg='white',font=myFont
 bottonSend.pack(side=RIGHT, padx=20, pady=5)
 
 textResult = ScrolledText(root, wrap=WORD, bg='#000000', fg='white', font=myFont) # '#0000000'='black' ###### root에 위치?
-textResult.pack(fill=BOTH, expand=True) 
+textResult.pack(fill=BOTH, expand=True)
 
 textResult.tag_configure('user', font=boldFont, foreground='yellow') # 글자 굵게, 노란색으로 # slant=ITALIC?????????
 textResult.tag_configure('ai', font=boldFont, foreground='limegreen') 
