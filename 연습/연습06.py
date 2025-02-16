@@ -1,67 +1,55 @@
-from tkinter import * # import 불러오다
-from tkinter.messagebox import *
-from tkinter.scrolledtext import *
-from tkinter.font import *
+import pygame 
+from pygame.locals import QUIT 
+from pygame.draw import *
+import pygame.image as image
 
-import google.generativeai as genai # generativeai -> ai를 생성한다
+import sys 
 
+# 기본변수
+pygame.init()
+Surface = pygame.display.set_mode((400, 400)) ## root.geometry('640x400)
+FPSCLOCK = pygame.time.Clock()
+pygame.display.set_caption('Pygame Graphic')
 
-genai.configure(api_key='IzaSyBPuAhm1CP6pMLsk9UioATjQVKTbbrq8dE') # cofigure 환경을 설정하다
-model = genai.GenerativeModel('gemini-1.5-flash')
-
-def responseMessage():
-    inputText = textMessage.get('1.0', END).replace('\n','').strip() #####'1.0', END?????? # .strip() 
-    print(inputText)
-    textMessage.delete('1.0', END)
-
-    if inputText:
-        try:
-            textResult.insert(END, '유저: ', BOLD)
-            textResult.insert(END, f'{inputText}\n\n','user')
-
-            ai_response = model.generate_content(inputText) # generate_content??
-            response = ai_response.text
-
-            textResult.insert(END, '챗봇: ', BOLD)
-            textResult.insert(END, f'{response}\n\n', 'ai')
-
-            textResult.see(END)
-
-        except Exception as e:
-            textResult.insert(END, f'{response}\n\n', 'error')
-        finally:
-            textResult.see(END)
+def main():
+    # 이미지 로드
+    snake = image.load('./image/snake.png')
+    # 텍스트 변수
+    myfont = pygame.font.SysFont('NanumGotic', 50)
+    message1 = myfont.render('This is my message', True, (255,150,255)) # 안티알리싱-계단현상완화
+    message2 = myfont.render('This is PyGame', False, (255,150,255)) 
 
 
-def keypress(event):
-    if event.char == '\r': 
-        responseMessage()
+    while True:
+        Surface.fill(color='black')
+        # Surface.fill((255, 255, 255)) # #FFFFFF = white. #0000000 / #00FFFFFF alpha 투명도
+        for event in pygame.event.get(): # 키보드, 마우스 이벤트 체크
+            if event.type == QUIT: # WM_DELETE_WINDOW
+                pygame.quit()   # pygame을 종료
+                sys.exit()      # 윈도우 앱 탈출
+        
+        # 화면
+        for x in range(10, 400, 10):
+            line(Surface, 'white', (x, 0), (x, 400))
+        for y in range(10, 400, 10):
+            line(Surface, 'white', (0, y), (400, y))
 
-root = Tk()
-root.title('제미나이 챗봇')
-root.geometry('730x450') # geometry 기하학 구조
+        pygame.draw.line(Surface, color=(255,0,0), start_pos=(30,30),end_pos=(150,30), width=3)
+        line(Surface, (0,255,0),(30,60),(150,60),5)
+        line(Surface, (0,0,255),(30,90),(150,150),7)
 
-myFont = Font(family='NanumGothic', size=10) # 폰트는 화면에서 할거니까 화면을 구성하고 ~
-boldFont = Font(family='NanumGothic', size=10, weight=BOLD)
+        pygame.draw.rect(Surface, color='white', rect=(200,30,50,50))
+        # rect(Surface,(255,0,0), (260,30,100,50),3)
 
-inputFrame = Frame(root, width=730, height=30, bg='black') # root 넣는 이유 ???
-inputFrame.pack(side=BOTTOM, fill=BOTH)
+        Surface.blit(message1, (30,230))
+        Surface.blit(message2, (30,280))
 
-textMessage = Text(inputFrame, width=75, height=1, wrap=WORD, font=myFont)
-textMessage.bind('<Key>', keypress)
-textMessage.pack(side=LEFT, padx=15)
+        pygame.display.update()
+        FPSCLOCK.tick(30)
 
-bottonSend = Button(inputFrame, text='전송', bg='green',fg='white',font=myFont, command=responseMessage)
-bottonSend.pack(side=RIGHT, padx=20, pady=5)
-
-textResult = ScrolledText(root, wrap=WORD, bg='#000000', fg='white', font=myFont) # '#0000000'='black' ###### root에 위치?
-textResult.pack(fill=BOTH, expand=True)
-
-textResult.tag_configure('user', font=boldFont, foreground='yellow') # 글자 굵게, 노란색으로 # slant=ITALIC?????????
-textResult.tag_configure('ai', font=boldFont, foreground='limegreen') 
-textResult.tag_configure('error', font=boldFont, foreground='red') 
-
-textMessage.focus_set()
+if __name__ == '__main__':
+    main()
 
 
-root.mainloop() # mainloop 꺼지지 않고 창이 계속 켜져있게 하는 것
+
+
