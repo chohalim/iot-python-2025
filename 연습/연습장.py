@@ -40,7 +40,7 @@ def keypress(event):
 
 root = Tk()
 root.title('하림 연습')
-root.geometry('730x450')
+root.geometry('730x450') 
 
 myfont = Font(family='NanumGothic', size=10)
 boldfont = Font(family='NanumGothic', size=10, weight=BOLD)

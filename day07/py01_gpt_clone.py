@@ -27,7 +27,7 @@ def responseMessage():
 
     if inputText:
         try:
-            textResult.insert(END, '유저: ', BOLD)
+            textResult.insert(END,'유저: ', BOLD)
             textResult.insert(END, f'{inputText}\n\n', 'user') 
 
             ai_response = model.generate_content(inputText) # generate_content??
